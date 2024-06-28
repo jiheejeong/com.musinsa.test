@@ -9,7 +9,7 @@ public class BrandNotFoundException extends EntityNotFoundException {
     super(message);
   }
 
-  public static Supplier<BrandNotFoundException> supplier(final Long brandName) {
-    return () -> new BrandNotFoundException("Brand for '" + brandName + "' not found");
+  public static Supplier<BrandNotFoundException> supplier(final Long brandNo) {
+    return () -> new BrandNotFoundException("Brand for '" + brandNo + "' not found");
   }
 }

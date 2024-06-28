@@ -7,6 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
 
 @Builder
 @Getter
@@ -24,6 +28,12 @@ public class Product {
 
   @Column(nullable = false)
   private Long price;
+
+  @CreatedDate
+  private LocalDateTime registeredAt;
+
+  @LastModifiedDate
+  private LocalDateTime updatedAt;
 
   @ManyToOne
   @JoinColumn(name = "categoryNo")

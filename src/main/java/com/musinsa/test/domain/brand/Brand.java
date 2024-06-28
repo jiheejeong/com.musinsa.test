@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,12 +23,25 @@ public class Brand {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long brandNo;
 
-  @Column(nullable = false)
+  @Column(nullable = false, unique = true)
   private String name;
 
   @CreatedDate
   private LocalDateTime registeredAt;
 
+  @LastModifiedDate
+  private LocalDateTime updatedAt;
+
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Product> products ;
+
+  public void create(final String name) {
+    this.name = name;
+    this.registeredAt = LocalDateTime.now();
+  }
+
+  public void modify(final String name) {
+    this.name = name;
+    this.updatedAt = LocalDateTime.now();
+  }
 }
