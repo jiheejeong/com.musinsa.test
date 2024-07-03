@@ -1,9 +1,10 @@
 package com.musinsa.test.rest.product;
 
 import com.musinsa.test.rest.product.payload.CategoryPriceMarginResponse;
+import com.musinsa.test.rest.product.payload.LowestPriceSummationResponse;
 import com.musinsa.test.service.product.ProductCategoryService;
 import com.musinsa.test.service.product.dto.CategoryPriceMarginResult;
-import com.musinsa.test.support.ResponseWrapper;
+import com.musinsa.test.service.product.dto.CategoryPriceSummation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,15 @@ public class ProductCategoryController {
   @GetMapping("/price-margin")
   public ResponseEntity<CategoryPriceMarginResponse> getBrandPriceMarginByCategory(final String categoryName) {
     final CategoryPriceMarginResult result = productCategoryService.getBrandPriceMarginByCategory(categoryName);
+    return ResponseEntity.ok(ProductPayloadConverter.INSTANCE.toResponse(result));
+  }
+
+  /**
+   * @title 카테고리별 브랜드 최저가 집계 조회
+   */
+  @GetMapping("/lowest-price")
+  public ResponseEntity<LowestPriceSummationResponse> getLowestPriceBrand() {
+    final CategoryPriceSummation result = productCategoryService.getCategoryLowestPriceSummation();
     return ResponseEntity.ok(ProductPayloadConverter.INSTANCE.toResponse(result));
   }
 }

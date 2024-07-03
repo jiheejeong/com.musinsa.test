@@ -3,6 +3,7 @@ package com.musinsa.test.rest.product;
 import com.musinsa.test.rest.product.payload.*;
 import com.musinsa.test.service.product.dto.*;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
@@ -19,4 +20,7 @@ public interface ProductPayloadConverter {
   CategoryPriceMarginResponse toResponse(CategoryPriceMarginResult source);
 
   LowestPriceBrandResponse.LowestPriceBrand toResponse(LowestPriceBrandResult source);
+
+  @Mapping(target = "lowestPrices", source="categoryPrices")
+  LowestPriceSummationResponse toResponse(CategoryPriceSummation source);
 }

@@ -3,6 +3,7 @@ package com.musinsa.test.domain.product;
 import com.musinsa.test.domain.product.repository.ProductRepository;
 import com.musinsa.test.exception.ProductNotFoundException;
 import com.musinsa.test.service.product.dto.LowestPriceBrandResult;
+import com.musinsa.test.service.product.dto.LowestPriceCategoryResult;
 import com.musinsa.test.support.stereotype.Gateway;
 import lombok.RequiredArgsConstructor;
 
@@ -28,5 +29,9 @@ public class ProductGateway {
 
   public List<LowestPriceBrandResult> getBrandLowestPriceList() {
     return productRepository.getBrandLowestPriceList();
+  }
+
+  public List<LowestPriceCategoryResult> getCategoryLowestPriceList() {
+    return productRepository.getCategoryLowestPriceList();
   }
 }

@@ -1,7 +1,11 @@
 package com.musinsa.test.domain.product.repository;
 
 import com.musinsa.test.service.product.dto.LowestPriceBrandResult;
+import com.musinsa.test.service.product.dto.LowestPriceCategoryResult;
+import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.SubQueryExpression;
+import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.stereotype.Repository;
 
@@ -32,6 +36,21 @@ public class ProductCustomRepositoryImpl implements ProductCustomRepository {
             brand.name,
             list(Projections.constructor(LowestPriceBrandResult.CategoryPrice.class,
                 category.name,
+                product.price.min())))
+        ));
+  }
+
+  @Override
+  public List<LowestPriceCategoryResult> getCategoryLowestPriceList() {
+    return jpaQueryFactory.from(product)
+        .join(product.brand, brand)
+        .join(product.category, category)
+        .groupBy(category.categoryNo, brand.brandNo)
+        .orderBy(product.registeredAt.desc())
+        .transform(groupBy(category.name).list(Projections.constructor(LowestPriceCategoryResult.class,
+            category.name,
+            list(Projections.constructor(LowestPriceCategoryResult.BrandPrice.class,
+                brand.name,
                 product.price.min())))
         ));
   }

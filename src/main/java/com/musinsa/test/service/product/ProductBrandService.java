@@ -16,7 +16,7 @@ public class ProductBrandService {
 
   @Transactional(readOnly = true)
   public LowestPriceBrandResult getLowestPriceBrand() {
-    final List<LowestPriceBrandResult> brands = productGateway.getBrandLowestPriceList();
-    return brands.stream().min(Comparator.comparingLong(LowestPriceBrandResult::getTotalPrice)).orElse(LowestPriceBrandResult.builder().build());
+    final List<LowestPriceBrandResult> result = productGateway.getBrandLowestPriceList();
+    return result.stream().min(Comparator.comparingLong(LowestPriceBrandResult::getTotalPrice)).orElse(LowestPriceBrandResult.builder().build());
   }
 }
