@@ -5,6 +5,8 @@ import lombok.Value;
 
 @Builder
 @Value
-public class CreateBrandCommand {
+public class ModifyProductCommand {
+  Long productNo;
   String name;
+  Long price;
 }

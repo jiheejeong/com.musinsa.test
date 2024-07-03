@@ -42,4 +42,18 @@ public class Product {
   @ManyToOne
   @JoinColumn(name = "brandNo")
   private Brand brand;
+
+  public void create(final String name, final Long price, final Category category, final Brand brand) {
+    this.name = name;
+    this.price = price;
+    this.category = category;
+    this.brand = brand;
+    this.registeredAt = LocalDateTime.now();
+  }
+
+  public void modify(final String name, final Long price) {
+    this.name = name;
+    this.price = price;
+    this.updatedAt = LocalDateTime.now();
+  }
 }

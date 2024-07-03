@@ -1,4 +1,4 @@
-package com.musinsa.test.service.product.dto;
+package com.musinsa.test.rest.product.payload;
 
 import lombok.Builder;
 import lombok.Value;
@@ -7,12 +7,12 @@ import java.time.LocalDateTime;
 
 @Value
 @Builder
-public class ProductResult {
+public class ProductResponse {
   Long productNo;
   String name;
   Long price;
-  LocalDateTime registeredAt;
-  LocalDateTime updatedAt;
   String categoryName;
   String brandName;
+  LocalDateTime registeredAt;
+  LocalDateTime updatedAt;
 }

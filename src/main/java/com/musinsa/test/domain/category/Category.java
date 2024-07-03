@@ -20,7 +20,7 @@ public class Category {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long categoryNo;
 
-  @Column(nullable = false)
+  @Column(nullable = false, unique = true)
   private String name;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
