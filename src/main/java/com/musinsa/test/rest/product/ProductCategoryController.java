@@ -30,7 +30,7 @@ public class ProductCategoryController {
   /**
    * @title 카테고리별 브랜드 최저가 집계 조회
    */
-  @GetMapping("/lowest-price")
+  @GetMapping("/lowest-price-summation")
   public ResponseEntity<LowestPriceSummationResponse> getLowestPriceBrand() {
     final CategoryPriceSummation result = productCategoryService.getCategoryLowestPriceSummation();
     return ResponseEntity.ok(ProductPayloadConverter.INSTANCE.toResponse(result));
