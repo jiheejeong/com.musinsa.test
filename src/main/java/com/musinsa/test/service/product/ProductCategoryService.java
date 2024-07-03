@@ -1,9 +1,9 @@
-package com.musinsa.test.service.category;
+package com.musinsa.test.service.product;
 
 import com.musinsa.test.domain.category.Category;
 import com.musinsa.test.domain.category.CategoryGateway;
 import com.musinsa.test.domain.product.Product;
-import com.musinsa.test.service.category.dto.CategoryPriceMarginResult;
+import com.musinsa.test.service.product.dto.CategoryPriceMarginResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryPriceService {
+public class ProductCategoryService {
 
   private final CategoryGateway categoryGateway;
 

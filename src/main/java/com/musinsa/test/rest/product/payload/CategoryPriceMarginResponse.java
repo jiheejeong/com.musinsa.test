@@ -1,4 +1,4 @@
-package com.musinsa.test.rest.category.payload;
+package com.musinsa.test.rest.product.payload;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;

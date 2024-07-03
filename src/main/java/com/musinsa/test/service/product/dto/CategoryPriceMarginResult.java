@@ -1,4 +1,4 @@
-package com.musinsa.test.service.category.dto;
+package com.musinsa.test.service.product.dto;
 
 import lombok.Builder;
 import lombok.Value;
