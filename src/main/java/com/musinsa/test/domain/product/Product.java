@@ -49,6 +49,7 @@ public class Product {
     this.category = category;
     this.brand = brand;
     this.registeredAt = LocalDateTime.now();
+    this.updatedAt = LocalDateTime.now();
   }
 
   public void modify(final String name, final Long price) {

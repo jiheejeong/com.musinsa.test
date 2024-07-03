@@ -27,7 +27,7 @@ public class ProductService {
     final Category category = categoryGateway.findById(command.getCategoryNo());
     final Brand brand = brandGateway.findById(command.getBrandNo());
     product.create(command.getName(), command.getPrice(), category, brand);
-    return ProductConverter.INSTANCE.toResult(product);
+    return ProductConverter.INSTANCE.toResult(productGateway.save(product));
   }
 
   @Transactional

@@ -38,6 +38,7 @@ public class Brand {
   public void create(final String name) {
     this.name = name;
     this.registeredAt = LocalDateTime.now();
+    this.updatedAt = LocalDateTime.now();
   }
 
   public void modify(final String name) {
