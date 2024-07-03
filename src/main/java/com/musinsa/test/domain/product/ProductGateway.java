@@ -2,8 +2,11 @@ package com.musinsa.test.domain.product;
 
 import com.musinsa.test.domain.product.repository.ProductRepository;
 import com.musinsa.test.exception.ProductNotFoundException;
+import com.musinsa.test.service.product.dto.LowestPriceBrandResult;
 import com.musinsa.test.support.stereotype.Gateway;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 @Gateway
 @RequiredArgsConstructor
@@ -21,5 +24,9 @@ public class ProductGateway {
 
   public void delete(final Product brand) {
     productRepository.delete(brand);
+  }
+
+  public List<LowestPriceBrandResult> getBrandLowestPriceList() {
+    return productRepository.getBrandLowestPriceList();
   }
 }

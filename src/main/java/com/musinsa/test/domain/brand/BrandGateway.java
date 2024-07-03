@@ -5,6 +5,8 @@ import com.musinsa.test.exception.BrandNotFoundException;
 import com.musinsa.test.support.stereotype.Gateway;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @Gateway
 @RequiredArgsConstructor
 public class BrandGateway {
@@ -21,5 +23,9 @@ public class BrandGateway {
 
   public void delete(final Brand brand) {
     brandRepository.delete(brand);
+  }
+
+  public List<Brand> findAll() {
+    return brandRepository.findAll();
   }
 }
