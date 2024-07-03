@@ -14,4 +14,8 @@ public class CategoryGateway {
   public Category findById(final Long categoryNo) {
     return categoryRepository.findById(categoryNo).orElseThrow(CategoryNotFoundException.supplier(categoryNo));
   }
+
+  public Category findByName(final String categoryName) {
+    return categoryRepository.findByName(categoryName).orElseThrow(CategoryNotFoundException.supplier(categoryName));
+  }
 }

@@ -12,4 +12,8 @@ public class CategoryNotFoundException extends EntityNotFoundException {
   public static Supplier<CategoryNotFoundException> supplier(final Long categoryNo) {
     return () -> new CategoryNotFoundException("Category for '" + categoryNo + "' not found");
   }
+
+  public static Supplier<CategoryNotFoundException> supplier(final String categoryName) {
+    return () -> new CategoryNotFoundException("Category for '" + categoryName + "' not found");
+  }
 }
